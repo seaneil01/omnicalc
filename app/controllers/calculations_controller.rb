@@ -10,14 +10,16 @@ class CalculationsController < ApplicationController
     # The special word the user input is in the string @special_word.
     # ================================================================================
 
+    text_downcase = @text.downcase.gsub(/[^a-z0-9\s]/i, "")
+    special_word_downcase= @special_word.downcase.gsub(/[^a-z0-9\s]/i, "")
 
-    @word_count = "Replace this string with your answer."
+    @word_count = @text.split.size
 
-    @character_count_with_spaces = "Replace this string with your answer."
+    @character_count_with_spaces = @text.length
 
-    @character_count_without_spaces = "Replace this string with your answer."
+    @character_count_without_spaces = @text.gsub(/ /, '').length
 
-    @occurrences = "Replace this string with your answer."
+    @occurrences = text_downcase.split.count(special_word_downcase)
 
     # ================================================================================
     # Your code goes above.
