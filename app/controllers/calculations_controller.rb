@@ -115,7 +115,8 @@ class CalculationsController < ApplicationController
 
     @standard_deviation = @variance**0.5
 
-    @mode =
+    @mode = sorted.group_by(&:itself).values.max_by(&:size).first
+
 
     # ================================================================================
     # Your code goes above.
